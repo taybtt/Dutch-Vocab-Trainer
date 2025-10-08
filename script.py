@@ -9,12 +9,12 @@ lemmatizer = WordNetLemmatizer()
 
 def transform_into_csv():
     """Transforms the text file input into csv."""
-    df = pd.read_csv("translated dutch vocab from the b1 book.txt")
-    df.to_csv("word_bank.csv",sep=';', index=None)
+    # df = pd.read_csv("translated dutch vocab from the b1 book.txt")
+    df.to_csv("word_bank.csv",sep=':', index=None)
 
 def create_dict():
     """Creates a dictionary from the word_bank csv."""
-    df = pd.read_csv("word_bank.csv")
+    df = pd.read_csv("word_bank.csv", sep=':')
     for index, row in df.iterrows():
         if row.iloc[0].strip() not in word_dict.keys(): #if the dutch word is not in the dictionary
             word_dict.update({row.iloc[0].strip(): row.iloc[1].strip()})
@@ -27,10 +27,6 @@ def create_dict():
             print(word_dict.get(row.iloc[0].strip()))
 
     print(len(word_dict.keys()))
-
-
-
-
 
 def run_lemma_similarity():
     """Checks whether a word has been entered with the same translation multiple times. 
@@ -51,7 +47,6 @@ def run_lemma_similarity():
                     if lemmatized_words[i] == lemmatized_words[j]: #if the translations are the same, add the second to be removed
                         if not (j in index_same_words_to_remove):
                             index_same_words_to_remove.append(j)
-            print(index_same_words_to_remove)
             for i in range(len(index_same_words_to_remove)):#remove the words to be removed
                 translations.pop(index_same_words_to_remove[i]-i)
             word_dict.update({key: translations})
@@ -60,5 +55,6 @@ def run_lemma_similarity():
 
 
 #main
+# transform_into_csv()
 create_dict()
 run_lemma_similarity()
