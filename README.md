@@ -20,3 +20,5 @@ Functions:
     - Once a word is mastered it should be showed less often to open up time to learn more words.
 
     - When it shows a user a multiple choice question, the wrong choices should also be from the same word type. Example: A noun should only show other nouns as a possible answer for multiple choice questions since it is very easy to understand the word type and that reduces the number of possibly correct answers which in turn reduces the engagement of the user.
+
+    -Maybe also add conjugation trainer for past tenses of verbs, especially the irregular ones
