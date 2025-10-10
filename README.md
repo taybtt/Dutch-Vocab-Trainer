@@ -22,3 +22,5 @@ Functions:
     - When it shows a user a multiple choice question, the wrong choices should also be from the same word type. Example: A noun should only show other nouns as a possible answer for multiple choice questions since it is very easy to understand the word type and that reduces the number of possibly correct answers which in turn reduces the engagement of the user.
 
     -Maybe also add conjugation trainer for past tenses of verbs, especially the irregular ones
+
+    -Should do the adding part as \v for vocab, \p for phrase, \e for expression, and \vc for verb conjugation in perfektum and imperfektum.

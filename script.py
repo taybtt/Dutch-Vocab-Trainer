@@ -97,11 +97,19 @@ def handle_supply_vocab():
             break
         while(len(intake.split(':')) != 2 or len(intake.split(':')[0]) == 0 or len(intake.split(':')[1]) == 0): #checking if the format is correct
             intake = input("Please input the string in the correct format: 'dutch_word:english_word'\n")
-        
+            if (intake == 'quit'): #when quit is called
+                flag1 = True
+                break
+        if (flag1):
+            break
         dutch_word = intake.split(':')[0]
         english_word = intake.split(':')[1]
-        single_lemma_similarity(dutch_word, english_word)
-        print(dutch_word, english_word, word_dict.get(dutch_word))
+        bool = single_lemma_similarity(dutch_word, english_word)
+        if bool:
+            print("The word has been added to the dictionary. The trasnlation(s) recorded for {d_word}: {translations}".format(d_word = dutch_word, translations = word_dict.get(dutch_word)))
+
+        else:
+            print("The word already exists in the dictionary.")
 
 
 def handle_vocab_trainer():
